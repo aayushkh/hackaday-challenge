@@ -1,0 +1,18 @@
+{
+  "name": "supplyframe",
+  "version": "1.0.0",
+  "description": "Supplyframe Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": [
+    "supplyframe",
+    "hackaday.io"
+  ],
+  "author": "Aayush Khanna",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
