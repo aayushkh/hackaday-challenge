@@ -4,7 +4,7 @@
   "description": "Supplyframe Coding Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npm start"
+    "start": "node index.js"
   },
   "keywords": [
     "supplyframe",
@@ -13,6 +13,8 @@
   "author": "Aayush Khanna",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "request": "^2.85.0"
   }
 }
