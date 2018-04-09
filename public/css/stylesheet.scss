@@ -1,7 +1,7 @@
 $black: #171717;
 $gold: #C19F54;
 $permMarkerFont: 'Permanent Marker';
-
+$hiMelodyFont: 'Kalam';
 
 html, body {
 	width: 100%;
@@ -13,10 +13,56 @@ html, body {
 h2 {
 	color: $gold;
 	font-family: $permMarkerFont;
+	font-size: 40px;
 	display: flex;
 	justify-content: center;
+	letter-spacing: 2px;
+	margin: 30px auto;
 }
 
 .container-fluid {
+	padding: 20px 100px;	
+}
 
+.progress-wrapper {
+    padding: 20vh 50px;
+}
+
+.progress-text {
+	color: $gold;
+	text-align: center;
+	font-size: 30px;
+	font-family: $hiMelodyFont;
+}
+
+.cards-wrapper {
+	display: none;
+    padding: 20vh 50px;
+}
+
+.cards-text {
+	color: $gold;
+	text-align: center;
+	font-size: 30px;
+	font-family: $hiMelodyFont;
+}
+
+.loader {
+    border: 8px solid $gold; 
+    border-top: 8px solid $black; 
+    border-radius: 40px;
+    width: 80px;
+    height: 80px;
+    animation: spin 1.5s linear infinite;
+    margin: 0px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pagination {
+	justify-content: center;
+	margin: 10vh 0px;
 }

@@ -13,10 +13,33 @@ app.use(function(req, res, next) {
 	next();
 });
 
+var apikey = "RzYEaCIPvzmeHX4e";
+
+app.get("/projects", function(req, res) {
+	console.log("Request Recieved at Backend");
+
+	url = "http://api.hackaday.io/v1/projects?api_key=" + apikey;
+
+	request.get({
+	    url: url,
+	    json: true,
+	    headers: {'User-Agent': 'request'}
+	  }, (err, response, data) => {
+	    if (err) {
+	    	console.log('Error:', err);
+	    } else if (res.statusCode !== 200) {
+	    	console.log('Status:', response.statusCode);
+	    } else {
+	    	console.log(data);
+	      	res.setHeader('content-type', 'application/json');
+			res.json(data);
+	    }
+	});
+});
 
 
 if (module === require.main) {
-  // Start the server
+	// Start the server
     var server = app.listen(process.env.port || 8000, function () {
     var port = server.address().port;
 
@@ -24,5 +47,5 @@ if (module === require.main) {
     console.log('Press Ctrl+C to quit.');
   });
 }
-
 module.exports = app;
+
