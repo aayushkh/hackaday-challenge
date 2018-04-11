@@ -30,7 +30,6 @@ app.get("/projects", function(req, res) {
 	    } else if (res.statusCode !== 200) {
 	    	console.log('Status:', response.statusCode);
 	    } else {
-	    	console.log(data);
 	      	res.setHeader('content-type', 'application/json');
 			res.json(data);
 	    }
@@ -48,4 +47,3 @@ if (module === require.main) {
   });
 }
 module.exports = app;
-

@@ -4,6 +4,12 @@ html, body {
   margin: auto;
   background-color: #171717; }
 
+p {
+  color: #171717;
+  font-size: 20px;
+  font-family: "Kalam";
+  margin: 8px 0px !important; }
+
 h2 {
   color: #C19F54;
   font-family: "Permanent Marker";
@@ -25,16 +31,6 @@ h2 {
   font-size: 30px;
   font-family: "Kalam"; }
 
-.cards-wrapper {
-  display: none;
-  padding: 20vh 50px; }
-
-.cards-text {
-  color: #C19F54;
-  text-align: center;
-  font-size: 30px;
-  font-family: "Kalam"; }
-
 .loader {
   border: 8px solid #C19F54;
   border-top: 8px solid #171717;
@@ -50,6 +46,89 @@ h2 {
   100% {
     transform: rotate(360deg); } }
 
+/***  Pagination ***/
+.page-navigation {
+  display: none; }
+
 .pagination {
   justify-content: center;
   margin: 10vh 0px; }
+
+.page-item.disabled .page-link {
+  opacity: 0.5;
+  color: #FFFFFF;
+  background-color: #171717;
+  border-color: #C19F54; }
+
+.page-item.active .page-link {
+  color: #171717;
+  background-color: #C19F54;
+  border-color: #C19F54; }
+
+.page-link {
+  padding: 0.75rem 1rem;
+  color: #FFFFFF;
+  background-color: #171717;
+  border-color: #C19F54; }
+
+.page-link:hover {
+  color: #171717;
+  background-color: #C19F54;
+  border-color: #C19F54; }
+
+/***  CSS grids ***/
+.grid-wrapper {
+  display: none;
+  height: 100%;
+  grid-template-rows: repeat(13, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px; }
+
+.grid-item {
+  width: 300px;
+  height: 400px;
+  background-color: #171717;
+  border: 3px solid #C19F54; }
+
+.grid-item .grid-stats {
+  min-height: 50px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.card-text {
+  color: #FFFFFF;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center; }
+
+.card-text.name {
+  min-height: 120px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 0px 10px;
+  padding-top: 10px; }
+
+.card-text.summary {
+  min-height: 150px;
+  padding: 0px 10px; }
+
+.card-text.owner {
+  min-height: 40px; }
+
+.card-text.stats {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 10px;
+  color: #C19F54; }
+
+.card-text.stats i {
+  color: #FFFFFF; }
+
+.card-text .owner {
+  font-size: 18px;
+  padding: 0px 10px;
+  color: #C19F54; }
