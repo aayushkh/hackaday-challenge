@@ -143,7 +143,10 @@ h2 {
 	}
 
 	&.owner {
+		font-size: 18px;
 		min-height: 40px;
+		font-family: $kalamFont;
+		margin: 8px 0px !important;
 	}
 
 	&.stats {
@@ -157,9 +160,46 @@ h2 {
 		}
 	}
 
-	.owner {
+	.project-owner {
+		display: inline-block;
+		cursor: pointer;
 		font-size: 18px;
 		padding: 0px 10px;
 		color: $gold;
+
+		.tooltip {
+			display: inline-block;
+			color: $white;
+			background-color: $gold;
+			z-index: 1;
+			padding: 6px 12px;
+			border-radius: 10px 10px 10px 0;
+			white-space: nowrap;
+		}
+	}
+}
+
+
+.legend {
+	display: none;
+	color: $white;
+	font-family: $permMarkerFont;
+	justify-content: center;
+	margin: 30px 0px;
+
+	.legend-text {	
+		font-size: 20px;
+	}
+
+	span {
+		display: inline-block;
+		color: $gold;
+		margin-right: 10px;
+		margin-left: 8px;
+		margin-top: 5px;
+
+		i {
+			color: $white;
+		}
 	}
 }

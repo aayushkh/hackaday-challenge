@@ -117,7 +117,10 @@ h2 {
   padding: 0px 10px; }
 
 .card-text.owner {
-  min-height: 40px; }
+  font-size: 18px;
+  min-height: 40px;
+  font-family: "Kalam";
+  margin: 8px 0px !important; }
 
 .card-text.stats {
   padding-top: 5px;
@@ -128,7 +131,38 @@ h2 {
 .card-text.stats i {
   color: #FFFFFF; }
 
-.card-text .owner {
+.card-text .project-owner {
+  display: inline-block;
+  cursor: pointer;
   font-size: 18px;
   padding: 0px 10px;
   color: #C19F54; }
+
+.card-text .project-owner .tooltip {
+  display: inline-block;
+  color: #FFFFFF;
+  background-color: #C19F54;
+  z-index: 1;
+  padding: 6px 12px;
+  border-radius: 10px 10px 10px 0;
+  white-space: nowrap; }
+
+.legend {
+  display: none;
+  color: #FFFFFF;
+  font-family: "Permanent Marker";
+  justify-content: center;
+  margin: 30px 0px; }
+
+.legend .legend-text {
+  font-size: 20px; }
+
+.legend span {
+  display: inline-block;
+  color: #C19F54;
+  margin-right: 10px;
+  margin-left: 8px;
+  margin-top: 5px; }
+
+.legend span i {
+  color: #FFFFFF; }

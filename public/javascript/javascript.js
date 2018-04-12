@@ -1594,6 +1594,27 @@ var data = {
     ]
 }
 
+var owner_data = {
+    "id": 10526,
+    "url": "https://hackaday.io/iabdalkader",
+    "username": "iabdalkader",
+    "screen_name": "i.abdalkader",
+    "rank": 7,
+    "image_url": "https://cdn.hackaday.io/images/3873461401740841534.jpeg?r=x&s=400&r=x&s=400",
+    "followers": 7745,
+    "following": 0,
+    "projects": 2,
+    "skulls": 1350,
+    "location": "Egypt",
+    "about_me": "I like to make things :)",
+    "who_am_i": "I'm a maker/programmer/hobbyist",
+    "what_i_have_done": "",
+    "what_i_would_like_to_do": "Mainly because of the HaD Prize, but also getting feedback on my projects is invaluable to me, so that too. ",
+    "created": 0,
+    "tags": null
+};
+
+
 // $(document).ready(function(){
 // 	console.log("Request Sent to Backend");
 
@@ -1607,6 +1628,8 @@ var data = {
 // 	});
 // });
 
+var apikey = "RzYEaCIPvzmeHX4e";
+
 $(function () {
     var obj = $('#pagination').twbsPagination({
         totalPages: 348,
@@ -1615,14 +1638,16 @@ $(function () {
             $('.page-content').text('Page ' + page);
         }
     });
-    console.info(obj.data());
+    // console.info(obj.data());
 });
+
 
 // function populate(data) {
 $(document).ready(function(){
 	console.log(data);
 	$('.progress-wrapper').hide();
     $('.grid-wrapper').css('display','grid');
+    $('.legend').css('display','flex');
     $('.page-navigation').show();
 	var id, url, owner_id, name, summary, comments, created, followers, image_url, logs, skulls, updated, views;
 	var html_append = "";
@@ -1652,13 +1677,11 @@ $(document).ready(function(){
         
         html_append +="<p class='card-text summary'>" + data.projects[i].summary + " </p>";      
 
-        html_append +="<p class='card-text owner'>Owner ID : <span class='owner'>" + data.projects[i].owner_id + "<span></p>";
+        html_append +="<div class='card-text owner'>Owner ID<div class='project-owner'>" + data.projects[i].owner_id + "<div class='tooltip'>Check</div></div></div>";
 
         html_append += "<div class='grid-stats'>"
         html_append += "<i class='fa fa-comments'></i><p class='card-text stats'>" + data.projects[i].comments + " </p>";
         html_append += "<i class='fa fa-users'></i><p class='card-text stats'>" + data.projects[i].followers + " </p>";
-        // html_append += "</div>"; //close div.grid-stats
-        // html_append += "<div class='grid-stats'>"
         html_append += "<img src='https://dev.hackaday.io/img/logo.svg' width='18px' height='18px'><p class='card-text stats'>" + data.projects[i].skulls + " </p>";
         html_append += "<i class='fa fa-eye'></i><p class='card-text stats'>" + data.projects[i].views + " </p>";
         html_append += "</div>"; //close div.grid-stats
@@ -1667,6 +1690,53 @@ $(document).ready(function(){
 	}
 
 	$('.grid-wrapper').append(html_append);
-});
-// }
 
+    // $('.project_owner').click(function() {
+    //     console.log(this);
+    // });
+   
+
+    /*- jQuery to handle the owner details -*/
+
+    $('.project-owner').mouseenter(function() {
+        console.log(this);
+        var owner_id = $(this).text();
+        var owner_url = "http://api.hackaday.io/v1/users/" + owner_id + "?api_key=" + apikey;
+        var username, screen_name, rank, location, skulls, followers, projects, about_me, who_am_i;
+        
+        {
+            username = owner_data.username;
+            screen_name = owner_data.screen_name;
+            rank = owner_data.rank;
+            location = owner_data.location;
+            skulls = owner_data.skulls;
+            projects = owner_data.projects;
+            about_me = owner_data.about_me;
+            who_am_i = owner_data.who_am_i;
+        }
+
+
+        // $.ajax({
+
+        //     url: owner_url,
+        //     type: "GET",
+
+        //     success: function(data) {
+        //         /*- Populate the toolTip -*/
+
+        //     }
+        //  });
+    });
+
+    // $('.project-owner').mouseout(function() {
+    //     console.log(this);
+    // });
+
+});
+
+
+
+
+// document.getElementsByClassName("project-owner").addEventListener('click',function() {
+//     alert("clickled");
+// });
