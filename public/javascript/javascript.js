@@ -1673,19 +1673,23 @@ $(document).ready(function(){
 		}
 
 		html_append += "<div class='grid-item'>";
-		html_append += "<p class='card-text name'>" + data.projects[i].name + " </p>";
+		html_append += "<p class='card-text name'>" + data.projects[i].name + "</p>";
         
-        html_append +="<p class='card-text summary'>" + data.projects[i].summary + " </p>";      
+        html_append +="<p class='card-text summary'>" + data.projects[i].summary + "</p>";      
 
-        html_append +="<div class='card-text owner'>Owner ID<div class='project-owner'>" + data.projects[i].owner_id + "<div class='tooltip'>Check</div></div></div>";
+        html_append += "<div class='card-text owner'>Owner ID : ";
+        html_append += "<div class='project-owner'>" + data.projects[i].owner_id;
+        html_append += "<div class='tooltip'><div class='owner-data'>";
+        html_append += "<p class='tooltip-text'>Fetching the owner details ...</p>";
+        html_append += "<div class='tooltip-loader'></div>";
+        html_append += "</div></div></div></div>";
 
         html_append += "<div class='grid-stats'>"
         html_append += "<i class='fa fa-comments'></i><p class='card-text stats'>" + data.projects[i].comments + " </p>";
         html_append += "<i class='fa fa-users'></i><p class='card-text stats'>" + data.projects[i].followers + " </p>";
         html_append += "<img src='https://dev.hackaday.io/img/logo.svg' width='18px' height='18px'><p class='card-text stats'>" + data.projects[i].skulls + " </p>";
         html_append += "<i class='fa fa-eye'></i><p class='card-text stats'>" + data.projects[i].views + " </p>";
-        html_append += "</div>"; //close div.grid-stats
-        html_append += "</div>"; //close div.grid-item
+        html_append += "</div></div>"; //close div.grid-stats & div.grid-item
 
 	}
 
@@ -1700,7 +1704,8 @@ $(document).ready(function(){
 
     $('.project-owner').mouseenter(function() {
         console.log(this);
-        var owner_id = $(this).text();
+        var owner_id = $(this).clone().children().remove().end().text();
+        console.log(owner_id);
         var owner_url = "http://api.hackaday.io/v1/users/" + owner_id + "?api_key=" + apikey;
         var username, screen_name, rank, location, skulls, followers, projects, about_me, who_am_i;
         
@@ -1712,25 +1717,50 @@ $(document).ready(function(){
             skulls = owner_data.skulls;
             projects = owner_data.projects;
             about_me = owner_data.about_me;
-            who_am_i = owner_data.who_am_i;
+            followers = owner_data.followers;
         }
 
+        html_append = "";
+        // $('.tooltip-text').hide();
+        // $('.tooltip-loader').hide();
 
-        // $.ajax({
+        
 
-        //     url: owner_url,
-        //     type: "GET",
 
-        //     success: function(data) {
-        //         /*- Populate the toolTip -*/
 
-        //     }
-        //  });
+        $.ajax({
+
+            url: owner_url,
+            type: "GET",
+
+            success: function(data) {
+                $('.tooltip-text').hide();
+                $('.tooltip-loader').hide();
+                html_append += "<div class='to-empty'>";
+                html_append += "<div class='owner-text'><b>Username</b> " + data.username + "</div>";
+                html_append += "<div class='owner-text'><b>Screen Name</b> " + data.screen_name + "</div>";
+                html_append += "<div class='owner-text'><b>About me</b> " + data.about_me + "</div>";
+                html_append += "<div class='owner-text'><i class='fa fa-map-marker'></i> " + data.location + "</div>";
+                html_append += "<div class='owner-stats'>"
+                html_append += "<div class='owner-text'><i class='fa fa-code-fork'></i> " + data.projects + "</div>";
+                html_append += "<div class='owner-text'><img src='https://dev.hackaday.io/img/logo.svg' width='18px' height='18px'> " + data.skulls + "</div>";
+                html_append += "<div class='owner-text'><i class='fa fa-users'></i> " + data.followers + "</div>";
+                html_append += "</div></div>";
+    
+
+                $('.owner-data').append(html_append);
+            }
+         });
     });
 
-    // $('.project-owner').mouseout(function() {
-    //     console.log(this);
-    // });
+    $('.project-owner').mouseleave(function() {
+        console.log(this);
+        $('.to-empty').remove("");
+        $('.tooltip-text').show();
+        $('.tooltip-loader').show();
+    });
+
+    // $('.tooltip').append(html_append);
 
 });
 
