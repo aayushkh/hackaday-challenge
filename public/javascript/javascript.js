@@ -1594,27 +1594,6 @@ var data = {
     ]
 }
 
-var owner_data = {
-    "id": 10526,
-    "url": "https://hackaday.io/iabdalkader",
-    "username": "iabdalkader",
-    "screen_name": "i.abdalkader",
-    "rank": 7,
-    "image_url": "https://cdn.hackaday.io/images/3873461401740841534.jpeg?r=x&s=400&r=x&s=400",
-    "followers": 7745,
-    "following": 0,
-    "projects": 2,
-    "skulls": 1350,
-    "location": "Egypt",
-    "about_me": "I like to make things :)",
-    "who_am_i": "I'm a maker/programmer/hobbyist",
-    "what_i_have_done": "",
-    "what_i_would_like_to_do": "Mainly because of the HaD Prize, but also getting feedback on my projects is invaluable to me, so that too. ",
-    "created": 0,
-    "tags": null
-};
-
-
 // $(document).ready(function(){
 // 	console.log("Request Sent to Backend");
 
@@ -1653,25 +1632,6 @@ $(document).ready(function(){
 	var html_append = "";
 	for (var i = 0; i<data.per_page; i++) {
 
-		{
-			id = data.projects[i].id;
-			name = data.projects[i].name;
-			image_url = data.projects[i].image_url;
-
-			url = data.projects[i].url;
-			owner_id = data.projects[i].owner_id;
-
-			summary= data.projects[i].summary;
-
-			comments = data.projects[i].comments;
-			followers = data.projects[i].followers;
-			skulls = data.projects[i].skulls;
-			views = data.projects[i].views;
-
-			created = data.projects[i].created;
-			updated = data.projects[i].updated;
-		}
-
 		html_append += "<div class='grid-item'>";
 		html_append += "<p class='card-text name'>" + data.projects[i].name + "</p>";
         
@@ -1693,37 +1653,14 @@ $(document).ready(function(){
 
 	}
 
-	$('.grid-wrapper').append(html_append);
-
-    // $('.project_owner').click(function() {
-    //     console.log(this);
-    // });
-   
+	$('.grid-wrapper').append(html_append);   
 
     /*- jQuery to handle the owner details -*/
 
     $('.project-owner').mouseenter(function() {
-        console.log(this);
-        var owner_id = $(this).clone().children().remove().end().text();
-        console.log(owner_id);
-        var owner_url = "http://api.hackaday.io/v1/users/" + owner_id + "?api_key=" + apikey;
-        var username, screen_name, rank, location, skulls, followers, projects, about_me, who_am_i;
-        
-        {
-            username = owner_data.username;
-            screen_name = owner_data.screen_name;
-            rank = owner_data.rank;
-            location = owner_data.location;
-            skulls = owner_data.skulls;
-            projects = owner_data.projects;
-            about_me = owner_data.about_me;
-            followers = owner_data.followers;
-        }
-
         html_append = "";
-        // $('.tooltip-text').hide();
-        // $('.tooltip-loader').hide();
-
+        var owner_id = $(this).clone().children().remove().end().text();
+        var owner_url = "http://api.hackaday.io/v1/users/" + owner_id + "?api_key=" + apikey;
         
 
 
@@ -1770,3 +1707,33 @@ $(document).ready(function(){
 // document.getElementsByClassName("project-owner").addEventListener('click',function() {
 //     alert("clickled");
 // });
+
+// {
+//     id = data.projects[i].id;
+//     name = data.projects[i].name;
+//     image_url = data.projects[i].image_url;
+
+//     url = data.projects[i].url;
+//     owner_id = data.projects[i].owner_id;
+
+//     summary= data.projects[i].summary;
+
+//     comments = data.projects[i].comments;
+//     followers = data.projects[i].followers;
+//     skulls = data.projects[i].skulls;
+//     views = data.projects[i].views;
+
+//     created = data.projects[i].created;
+//     updated = data.projects[i].updated;
+// }
+
+// {
+//     username = owner_data.username;
+//     screen_name = owner_data.screen_name;
+//     rank = owner_data.rank;
+//     location = owner_data.location;
+//     skulls = owner_data.skulls;
+//     projects = owner_data.projects;
+//     about_me = owner_data.about_me;
+//     followers = owner_data.followers;
+// }
