@@ -18,7 +18,9 @@ var apikey = "RzYEaCIPvzmeHX4e";
 app.get("/projects", function(req, res) {
 	console.log("Request Recieved at Backend");
 
-	url = "http://api.hackaday.io/v1/projects?api_key=" + apikey;
+	var page = req.query.page;
+	console.log(page);
+	url = "http://api.hackaday.io/v1/projects?api_key=" + apikey + "&page=" + page;
 
 	request.get({
 	    url: url,
@@ -39,11 +41,12 @@ app.get("/projects", function(req, res) {
 
 if (module === require.main) {
 	// Start the server
-    var server = app.listen(process.env.port || 8000, function () {
+    var server = app.listen(process.env.port || 8081, function () {
     var port = server.address().port;
 
     console.log('App listening on port %s', port);
     console.log('Press Ctrl+C to quit.');
   });
 }
+
 module.exports = app;
