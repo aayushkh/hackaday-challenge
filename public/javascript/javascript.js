@@ -1,6 +1,4 @@
 $(document).ready(function(){
-	console.log("Request Sent to Backend");
-
 	$.ajax({
 	    url: "/projects?page=1",
 	    type: "GET",
@@ -27,12 +25,12 @@ function populate(data) {
     var html_append = "";
 
 	$('.progress-wrapper').hide();
+    $('.to-top').css('display','flex');
     $('.grid-wrapper').css('display','grid');
     $('.legend').css('display','flex');
     $('.page-navigation').show();
 
 	for (var i = 0; i<data.per_page; i++) {
-
 		html_append += "<div class='grid-item'>";
 		html_append += "<p class='card-text name'>" + data.projects[i].name + "</p>";
         html_append +="<p class='card-text summary'>" + data.projects[i].summary + "</p>";      
@@ -49,7 +47,6 @@ function populate(data) {
         html_append += data.projects[i].skulls + " </p>";
         html_append += "<i class='fa fa-eye'></i><p class='card-text stats'>" + data.projects[i].views + " </p>";
         html_append += "</div></div>"; //close div.grid-stats & div.grid-item
-
 	}
 
 	$('.grid-wrapper').append(html_append);   
@@ -90,16 +87,16 @@ function populate(data) {
         $('.tooltip-text').show();
         $('.tooltip-loader').show();
     });
-
 }
 
 
 $(document).on('click', '.page-item', function(e){
-    var page = $(this).text();
-
+    var page = $('.page-item.active').text(); 
+    $('.grid-wrapper').css('display','none');
+    $('.to-top').css('display','none');
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
     $('.progress-wrapper').show();
     $('.grid-wrapper').empty();
-    $('.grid-wrapper').css('display','none');
     $.ajax({
         url: "/projects?page=" + page,
         type: "GET",
@@ -110,4 +107,8 @@ $(document).on('click', '.page-item', function(e){
         }
      });
 
+});
+
+$(document).on('click', '.to-top', function(e){
+    $('html, body').animate({ scrollTop: 0 }, 'slow');
 });

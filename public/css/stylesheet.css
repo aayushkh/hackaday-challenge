@@ -17,7 +17,8 @@ h2 {
   display: flex;
   justify-content: center;
   letter-spacing: 2px;
-  margin: 30px auto; }
+  margin: 30px auto;
+  text-align: center; }
 
 .container-fluid {
   padding: 20px 100px; }
@@ -213,3 +214,59 @@ h2 {
 
 .legend span i {
   color: #FFFFFF; }
+
+/********  Back Top ********/
+.to-top {
+  cursor: pointer;
+  color: #C19F54;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+
+.to-top a {
+  color: gold;
+  padding: 10px 5px; }
+
+.to-top p {
+  font-size: 16px;
+  color: #C19F54; }
+
+/********  Resposivity ********/
+@media screen and (max-width: 1200px) {
+  .container-fluid {
+    padding: 20px 20px; }
+  .grid-wrapper {
+    grid-template-rows: repeat(17, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0px 10px; } }
+
+@media screen and (max-width: 992px) {
+  .container-fluid {
+    padding: 20px 20px; }
+  .grid-wrapper {
+    grid-template-rows: repeat(17, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0px 30px; } }
+
+@media screen and (max-width: 768px) {
+  .container-fluid {
+    padding: 20px 40px; }
+  .grid-wrapper {
+    grid-template-rows: repeat(25, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0px 30px; } }
+
+@media screen and (max-width: 576px) {
+  .container-fluid {
+    padding: 20px 20px; }
+  .legend {
+    justify-content: center;
+    flex-direction: column;
+    items-align: center;
+    text-align: center;
+    margin: 20px 0px; }
+  .grid-wrapper {
+    grid-template-rows: repeat(50, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0px 20px; } }

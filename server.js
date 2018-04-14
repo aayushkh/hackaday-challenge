@@ -16,10 +16,8 @@ app.use(function(req, res, next) {
 var apikey = "RzYEaCIPvzmeHX4e";
 
 app.get("/projects", function(req, res) {
-	console.log("Request Recieved at Backend");
 
 	var page = req.query.page;
-	console.log(page);
 	url = "http://api.hackaday.io/v1/projects?api_key=" + apikey + "&page=" + page;
 
 	request.get({
