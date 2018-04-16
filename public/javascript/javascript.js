@@ -1,3 +1,5 @@
+/* On Document load making an ajax call to the backend to fetch projects    */
+
 $(document).ready(function(){
 	$.ajax({
 	    url: "/projects?page=1",
@@ -9,6 +11,8 @@ $(document).ready(function(){
 	});
 });
 
+/* Infinite Pagination Support implemented using twbsPagination             */
+/* Logic for the Pagination plugin implemented bellow                       */
 
 $(function () {
     var obj = $('#pagination').twbsPagination({
@@ -20,6 +24,9 @@ $(function () {
     });
 });
 
+/* Populate the grids with the projects data using jQuery                   */
+/* Makes ajax calls to the hackaday.io server from the client side          */
+/* uses mouseenter/mouseleave jQuery to implement the tooltip               */
 
 function populate(data) {
     var html_append = "";
@@ -46,12 +53,12 @@ function populate(data) {
         html_append += "<img src='https://dev.hackaday.io/img/logo.svg' width='18px' height='18px'><p class='card-text stats'>";
         html_append += data.projects[i].skulls + " </p>";
         html_append += "<i class='fa fa-eye'></i><p class='card-text stats'>" + data.projects[i].views + " </p>";
-        html_append += "</div></div>"; //close div.grid-stats & div.grid-item
+        html_append += "</div></div>";
 	}
 
 	$('.grid-wrapper').append(html_append);   
 
-    /*- jQuery to handle the owner details -*/
+    /*- jQuery to handle the owner details -                                */
 
     $('.project-owner').mouseenter(function() {
         html_append = "";
@@ -89,6 +96,7 @@ function populate(data) {
     });
 }
 
+/* Pagination Logic                                                     */
 
 $(document).on('click', '.page-item', function(e){
     var page = $('.page-item.active').text(); 
@@ -109,6 +117,7 @@ $(document).on('click', '.page-item', function(e){
 
 });
 
+/* Scroll to top on projects load                                       */
 $(document).on('click', '.to-top', function(e){
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 });

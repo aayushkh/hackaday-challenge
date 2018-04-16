@@ -1,8 +1,12 @@
+/*** Constants ***/
+
 $black: #171717;
 $gold: #C19F54;
 $white: #FFFFFF;
 $permMarkerFont: 'Permanent Marker';
 $kalamFont: 'Kalam';
+
+/*** Outline CSS ***/
 
 html, body {
 	width: 100%;
@@ -29,20 +33,13 @@ h2 {
 	text-align: center;
 }
 
+/*** Container Paddings ***/
+
 .container-fluid {
 	padding: 20px 100px;	
 }
 
-.progress-wrapper {
-    padding: 20vh 50px;
-}
-
-.progress-text {
-	color: $gold;
-	text-align: center;
-	font-size: 30px;
-	font-family: $kalamFont;
-}
+/*** Loader ***/
 
 .loader {
     border: 8px solid $gold; 
@@ -96,7 +93,7 @@ h2 {
 	border-color: $gold;
 }
 
-/********  CSS grids ********/
+/***  CSS grids ***/
 
 
 .grid-wrapper {
@@ -121,6 +118,8 @@ h2 {
 		align-items: center;
 	}
 }
+
+/***  CSS for each card and tooltip ***/
 
 .card-text {
 	color: $white;
@@ -195,7 +194,7 @@ h2 {
 }
 
 
-/******** Tooltip details ********/
+/*** Tooltip details ***/
 
 .tooltip-text {
 	padding-top: 30px;
@@ -237,7 +236,7 @@ h2 {
 }
 
 
-/********  Legend CSS ********/
+/***  Legend CSS ***/
 
 
 .legend {
@@ -264,7 +263,7 @@ h2 {
 	}
 }
 
-/********  Back Top ********/
+/***  Back Top ***/
 
 
 .to-top {
@@ -286,7 +285,7 @@ h2 {
 	}
 }
 
-/********  Resposivity ********/
+/***  Resposivity ***/
 
 @media screen and (max-width: 1200px) {
 	
