@@ -41,6 +41,17 @@ h2 {
 
 /*** Loader ***/
 
+.loader-wrapper {
+    padding: 20vh 50px;
+}
+
+.loader-text {
+	color: $gold;
+	text-align: center;
+	font-size: 30px;
+	font-family: $kalamFont;
+}
+
 .loader {
     border: 8px solid $gold; 
     border-top: 8px solid $black; 

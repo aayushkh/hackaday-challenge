@@ -27,6 +27,15 @@ h2 {
   padding: 20px 100px; }
 
 /*** Loader ***/
+.loader-wrapper {
+  padding: 20vh 50px; }
+
+.loader-text {
+  color: #C19F54;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Kalam"; }
+
 .loader {
   border: 8px solid #C19F54;
   border-top: 8px solid #171717;

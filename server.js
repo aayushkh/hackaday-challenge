@@ -3,20 +3,21 @@ var express = require("express");
 var cors = require("cors");
 var request = require("request");
 
+/* Innitializing Expresss, CORS */
 var app = express();
 
 app.use(express.static("./public"));
-app.use(cors());
+// app.use(cors());
 
 app.use(function(req, res, next) {
 	console.log(`${req.method} request for '${req.url}' - `);
 	next();
 });
 
-var apikey = "RzYEaCIPvzmeHX4e";
-
+/* Server side call made to projects */
 app.get("/projects", function(req, res) {
 
+	var apikey = "RzYEaCIPvzmeHX4e";
 	var page = req.query.page;
 	url = "http://api.hackaday.io/v1/projects?api_key=" + apikey + "&page=" + page;
 

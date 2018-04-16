@@ -31,7 +31,7 @@ $(function () {
 function populate(data) {
     var html_append = "";
 
-	$('.progress-wrapper').hide();
+	$('.loader-wrapper').hide();
     $('.to-top').css('display','flex');
     $('.grid-wrapper').css('display','grid');
     $('.legend').css('display','flex');
@@ -103,7 +103,7 @@ $(document).on('click', '.page-item', function(e){
     $('.grid-wrapper').css('display','none');
     $('.to-top').css('display','none');
     $('html, body').animate({ scrollTop: 0 }, 'slow');
-    $('.progress-wrapper').show();
+    $('.loader-wrapper').show();
     $('.grid-wrapper').empty();
     $.ajax({
         url: "/projects?page=" + page,
