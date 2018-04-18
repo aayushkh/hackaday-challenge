@@ -199,6 +199,9 @@ h2 {
 .owner-text b {
   color: #C19F54; }
 
+.fa-map-marker {
+  color: #C19F54; }
+
 /***  Legend CSS ***/
 .legend {
   display: none;
