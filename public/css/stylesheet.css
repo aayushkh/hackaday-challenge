@@ -240,7 +240,7 @@ h2 {
   font-size: 16px;
   color: #C19F54; }
 
-/***  Resposivity ***/
+/***  Responsivity ***/
 @media screen and (max-width: 1200px) {
   .container-fluid {
     padding: 20px 20px; }
